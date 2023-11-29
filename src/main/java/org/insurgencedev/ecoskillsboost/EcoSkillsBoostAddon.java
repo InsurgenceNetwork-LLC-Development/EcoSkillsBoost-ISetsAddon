@@ -9,7 +9,7 @@ import org.insurgencedev.insurgencesets.libs.fo.Common;
 public class EcoSkillsBoostAddon extends InsurgenceSetsAddon {
 
     @Override
-    public void onAddonStart() {
+    public void onAddonReloadablesStart() {
         if (isDependentEnabled()) {
             registerEvent(new SkillsExperienceGainListener());
         }
