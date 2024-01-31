@@ -19,7 +19,7 @@ public final class SkillsExperienceGainListener implements Listener {
     public void onGain(PlayerSkillXPGainEvent event) {
         Player player = event.getPlayer();
         IPlayer cache = ISetsAPI.getCache(player);
-        long totalAmount = 0;
+        double totalAmount = 0;
 
         for (ItemStack item : player.getInventory().getArmorContents()) {
             if (item == null || item.getType().isAir()) {
@@ -61,11 +61,11 @@ public final class SkillsExperienceGainListener implements Listener {
         }
     }
 
-    private long calcAmount(double amountFromEvent, boolean isPercent, double boostAmount) {
+    private double calcAmount(double amountFromEvent, boolean isPercent, double boostAmount) {
         if (isPercent) {
-            return (long) (amountFromEvent * (1 + boostAmount / 100));
+            return amountFromEvent * (1 + boostAmount / 100);
         } else {
-            return (long) (amountFromEvent * (boostAmount < 1 ? 1 + boostAmount : boostAmount));
+            return amountFromEvent * (boostAmount < 1 ? 1 + boostAmount : boostAmount);
         }
     }
 
