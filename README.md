@@ -7,7 +7,7 @@ Using the below settings, the player will receive a 10x boost on the amount of s
 
 ```yaml
 Boosts:
-  - Namespace: MISC
+  - Namespace: ECO_SKILLS
     Type: Skills
     Percent: false
     Settings:
